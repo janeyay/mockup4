@@ -87,7 +87,7 @@ body {
 .verse-bottom a {
   font-size: 12px;
   color: #9F2525;
-  padding-top: 30px;
+  margin-top: 30px;
 }
 .top-bar {
   display: flex;
@@ -115,6 +115,7 @@ body {
 .book-section {
   display: flex;
   background-color: #fffafa;
+  gap: 5px;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -125,6 +126,7 @@ body {
   overflow-y: auto;
   border-right: 1px solid #ddd;
   padding: 1rem;
+  
 }
 .book-column:last-child {
   border-right: none;
@@ -153,6 +155,9 @@ body {
   pointer-events: auto;
   min-width: 800px;
 }
+#bookContent{
+    background-color: #f9eeee !important;
+}
 .form-check-label {
   margin-left: 0.5rem;
 }
@@ -178,15 +183,47 @@ body {
   <div class="search-container">
     <input type="text" class="form-control" style="max-width: 200px;" placeholder="Jeremiah 29:11">
     <div class="dropdown">
-      <button class="top-dropdown btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+      <button class="btn dropdown-toggle text-start top-dropdown" type="button" id="bibleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         New International Version (NIV)
       </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">KJV</a></li>
-        <li><a class="dropdown-item" href="#">ESV</a></li>
-        <li><a class="dropdown-item" href="#">NLT</a></li>
-      </ul>
+    
+      <div class="dropdown-menu w-100 p-0" aria-labelledby="bibleDropdown" id="bibleDropdownMenu">
+        <!-- Language Tabs -->
+        <div class="d-flex justify-content-around border-bottom px-2 py-1 bg-white">
+          <span class="tab-option fw-bold text-danger" data-lang="english" style="cursor: pointer;">ENGLISH</span>
+          <span class="tab-option text-muted" data-lang="espanol" style="cursor: pointer;">ESPANOL</span>
+          <span class="tab-option text-muted" data-lang="all" style="cursor: pointer;">ALL</span>
+        </div>
+    
+        <!-- Bible Version Lists -->
+        <div id="english" class="tab-content">
+          <a class="dropdown-item version-item" href="#">New Catholic Bible (NCB)</a>
+          <a class="dropdown-item version-item" href="#">New Century Version (NCV)</a>
+          <a class="dropdown-item version-item" href="#">New English Translation (NET Bible)</a>
+          <a class="dropdown-item version-item" href="#">New International Reader’s Version (NIRV)</a>
+          <a class="dropdown-item version-item" href="#">New International Version (NIV)</a>
+          <a class="dropdown-item version-item" href="#">New International Version - UK (NIVUK)</a>
+          <a class="dropdown-item version-item" href="#">New King James Version (NKJV)</a>
+          <a class="dropdown-item version-item" href="#">New Life Version (NLV)</a>
+          <a class="dropdown-item version-item" href="#">New Living Translation (NLT)</a>
+        </div>
+    
+        <div id="espanol" class="tab-content d-none">
+          <a class="dropdown-item version-item" href="#">Biblia de las Américas (LBLA)</a>
+          <a class="dropdown-item version-item" href="#">Nueva Versión Internacional (NVI)</a>
+          <a class="dropdown-item version-item" href="#">Reina-Valera 1960 (RVR1960)</a>
+        </div>
+    
+        <div id="all" class="tab-content d-none">
+          <a class="dropdown-item version-item" href="#">New International Version (NIV)</a>
+          <a class="dropdown-item version-item" href="#">Nueva Versión Internacional (NVI)</a>
+          <a class="dropdown-item version-item" href="#">Reina-Valera 1960 (RVR1960)</a>
+          <a class="dropdown-item version-item" href="#">New Living Translation (NLT)</a>
+          <a class="dropdown-item version-item" href="#">Biblia de las Américas (LBLA)</a>
+        </div>
+      </div>
     </div>
+    
     <button class="btn-search">Search</button>
   </div>
 
@@ -272,7 +309,7 @@ body {
       </div>
     </div>
     <div class="verse-bottom mt-3">
-      <a href="#" class="text-decoration-none d-block">Read Full Chapters</a>
+      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters</a>
       <a href="#" class="text-decoration-none">Jeremiah 29:11 in all English Translations</a>
     </div>
     <div class="icons-bar">
@@ -314,7 +351,7 @@ body {
       </div>
     </div>
     <div class="verse-bottom mt-3">
-      <a href="#" class="text-decoration-none d-block">Read Full Chapters</a>
+      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters</a>
       <a href="#" class="text-decoration-none">Philippians 4:13 in all English Translations</a>
     </div>
     <div class="icons-bar">
@@ -346,6 +383,41 @@ body {
     </div>
   </div>
 </div>
+
+
+<script>
+  const tabs = document.querySelectorAll('.tab-option');
+  const contents = document.querySelectorAll('.tab-content');
+  const dropdownMenu = document.getElementById('bibleDropdownMenu');
+  const dropdown = new bootstrap.Dropdown(document.getElementById('bibleDropdown'));
+
+  // Keep dropdown open on tab click
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent dropdown from closing
+
+      // Update tab styling
+      tabs.forEach(t => t.classList.remove('fw-bold', 'text-danger'));
+      tabs.forEach(t => t.classList.add('text-muted'));
+      tab.classList.add('fw-bold', 'text-danger');
+      tab.classList.remove('text-muted');
+
+      // Show corresponding content
+      const lang = tab.getAttribute('data-lang');
+      contents.forEach(content => {
+        content.classList.toggle('d-none', content.id !== lang);
+      });
+    });
+  });
+
+  // Close dropdown when a Bible version is selected
+  document.querySelectorAll('.version-item').forEach(item => {
+    item.addEventListener('click', () => {
+      dropdown.hide();
+      document.getElementById('bibleDropdown').textContent = item.textContent;
+    });
+  });
+</script>
 
 <script>
 function selectBook(element, bookName) {
