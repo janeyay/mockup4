@@ -10,171 +10,225 @@
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-body {
-  background-color: white;
-  color: #000;
-}
-.top-container {
-  background-color: #FFF2F2;
-  padding: 1rem;
-}
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.search-container .form-control {
-  height: 50px;
-  border: 1px solid #9F2525;
-  border-radius: 10px 0px 0px 10px;
-}
-.search-container .top-dropdown {
-  height: 50px !important;
-  border: 1px solid #9F2525;
-  border-radius: 0px;
-  color: rgb(23, 23, 23);
-}
-.search-container .btn-search {
-  background-color: #9F2525;
-  color: white;
-  height: 50px;
-  width: 100px;
-  border: none;
-}
-.verse-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 90%;
-  margin: 2rem auto;
-}
-.verse-container h4 {
-  font-family: "Inknut Antiqua", serif;
-  font-weight: 100 !important;
-  padding: 10px 0px;
-  border-bottom: 2px solid #fcebeb;
-}
-.verse-container p {
-  font-size: 14px;
-  color: #9F2525;
-}
-.verse-box {
-  background-color: #FFFBFB;
-  border-radius: 8px;
-  padding: 2rem;
-  flex: 1;
-  min-width: 300px;
-  max-width: 48%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-.verse-number-block {
-  display: flex;
-  align-items: flex-start;
-  border-left: 4px solid #9F2525;
-  margin-top: 1rem;
-  padding: 10px 10px 20px 10px;
-}
-.verse-number {
-  font-weight: bold;
-  color: #9F2525;
-  margin-right: 0.5rem;
-}
-.verse-content {
-  padding-top: 20px;
-}
-.verse-bottom a {
-  font-size: 12px;
-  color: #9F2525;
-  padding-top: 30px;
-}
-.top-bar {
-  display: flex;
-  justify-content: center;
-  gap: 310px;
-  padding: 0 1rem;
-}
-.top-bar .dropdown-toggle {
-  color: #9F2525;
-  font-weight: 500;
-}
-.icons-bar {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.icons-bar a {
-  color: #000;
-  font-size: 1.2rem;
-}
-.icons-bar a.text-secondary {
-  color: #bbb;
-}
-.book-section {
-  display: flex;
-  background-color: #fffafa;
-  gap: 5px;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 100%;
-}
-.book-column {
-  width: 33.3%;
-  height: 300px;
-  overflow-y: auto;
-  border-right: 1px solid #ddd;
-  padding: 1rem;
-  
-}
-.book-column:last-child {
-  border-right: none;
-}
-.book-column h5 {
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-.book-column ul {
-  list-style: none;
-  padding: 0;
-}
-.book-column li {
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.book-column li:hover {
-  background-color: #ffe6e6;
-}
-.book-column li.active {
-  color: #9F2525;
-  font-weight: bold;
-}
-.dropdown-menu .book-section {
-  pointer-events: auto;
-  min-width: 800px;
-}
-#bookContent{
-    background-color: #f9eeee !important;
-}
-.form-check-label {
-  margin-left: 0.5rem;
-}
-
-/* Shrunk/Compact View */
-.compact-view {
-  padding: 1rem !important;
-  font-size: 0.85rem;
-  max-width: 30% !important;
-}
-.compact-view .verse-content {
-  padding-top: 10px;
-}
-.compact-view .verse-bottom a {
-  font-size: 10px;
-}
-</style>
+    body {
+      background-color: white;
+      color: #000;
+    }
+    .top-container {
+      background-color: #7a2a27;
+      padding: 1rem;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap:2px;
+    }
+    .top-container .dropdown-menu{
+      width: fit-content !important;
+      font-size: 12px !important;
+    }
+    .search-container .form-control {
+      height: 50px;
+      /* border: 1px solid #9F2525; */
+      border: none;
+      color: white;
+      border-radius: 0px !important;
+      background: rgba(255, 255, 255, 0.2); /* semi-transparent background */
+      
+      
+    }
+    .search-container .form-control::placeholder {
+      color: white;
+    }
+    /* .search-container .tab-option span{
+      font-size: 12px !important;
+    } */
+    .search-container .top-dropdown {
+      height: 50px !important;
+      /* border: 1px solid #9F2525; */
+      border: none;
+      color: white;
+      border-radius: 0px !important;
+      
+      background: rgba(255, 255, 255, 0.2);
+      
+    }
+    .search-container .btn-search {
+      background-color: #501010e6;
+      color: white;
+      height: 50px;
+      width: 100px;
+      border: none;
+    }
+    .search-container .tab-content a:hover{
+      background-color:  #7a2a27;
+      color: rgb(234, 219, 219);
+    }
+    .verse-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 90%;
+      margin: 2rem auto;
+    }
+    .verse-container h4 {
+      font-family: "Inknut Antiqua", serif;
+      font-weight: 100 !important;
+      padding: 10px 0px;
+      border-bottom: 2px solid #792f2c;;
+    }
+    .verse-container p {
+      font-size: 12px;
+      color: #9F2525;
+      margin-top: 4px;
+    }
+    .verse-box {
+      background-color: #fbfffe;
+      border-radius: 4px;
+      padding: 2rem;
+      flex: 1;
+      min-width: 300px;
+      max-width: 48%;
+      box-shadow: 0 0px 4px 1px #7a2a27;
+      transition: all 0.3s ease-in-out;
+    }
+    .verse-number-block {
+      display: flex;
+      align-items: flex-start;
+      border-left: 4px solid #9F2525;
+      margin-top: 1rem;
+      padding: 10px 10px 20px 10px;
+    }
+    .verse-number {
+      font-weight: bold;
+      color: #9F2525;
+      margin-right: 0.5rem;
+    }
+    .verse-content {
+      padding-top: 20px;
+    }
+    .verse-bottom a {
+      font-size: 12px;
+      color: #9F2525;
+      margin-top: 30px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      gap: 310px;
+      padding: 0 1rem;
+    }
+    .top-bar .dropdown-toggle {
+      color: #c6bfbf;
+      font-weight: 500;
+    }
+    .top-bar .dropdown-toggle:hover {
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .top-bar .font-edit a{
+      font-size: 12px;
+    }
+    .top-bar .font-edit a:hover{
+      background-color: #7a2a27;
+      color: white;
+    }
+    .top-bar .font-edit .dropdown-menu{
+      border-radius: 0px !important;
+      width:max-content !important;
+    }
+    .icons-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .icons-bar a {
+      color: #000;
+      font-size: 1.2rem;
+    }
+    .icons-bar a.text-secondary {
+      color: #bbb;
+    }
+    .book-section {
+      display: flex;
+      background-color: #fffafa;
+      gap: 5px;
+      /* border-radius: 8px; */
+      overflow: hidden;
+      width: 100%;
+    }
+    .book-column {
+      
+      height: 350px;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+      padding: 1rem;
+      
+    }
+    .book-column::-webkit-scrollbar{
+      width: 2px;
+    }
+    .book-column::-webkit-scrollbar-thumb {
+      background: #392222;
+      border-radius: 5px;
+    }
+    .book-column:last-child {
+      border-right: none;
+      width:50%;
+    }
+    .book-column h5 {
+      /* font-weight: bold; */
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+    .book-column ul {
+      list-style: none;
+      padding: 0;
+      font-size: 12px;
+    }
+    .book-column li {
+      padding: 0.2rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .book-column li:hover {
+      background-color: #ffe6e6;
+    }
+    .book-column li.active {
+      color: #9F2525;
+      font-weight: bold;
+    }
+    .dropdown-menu .book-section {
+      pointer-events: auto;
+      min-width: 500px;
+    }
+    #bookContent{
+        background-color: #f9eeee !important;
+    }
+    #bookContent li:hover {
+      background-color:  #7a2a27;
+      color: rgb(234, 219, 219);
+    }
+    .form-check-label {
+      margin-left: 0.5rem;
+    }
+    
+    /* Shrunk/Compact View */
+    .compact-view {
+      padding: 1rem !important;
+      font-size: 0.85rem;
+      max-width: 30% !important;
+    }
+    .compact-view .verse-content {
+      padding-top: 10px;
+    }
+    .compact-view .verse-bottom a {
+      font-size: 10px;
+    }
+    </style>
 </head>
 <body>
 
@@ -284,7 +338,7 @@ body {
     </div>
 
     <!-- Font Size Dropdown -->
-    <div class="dropdown">
+    <div class="dropdown font-edit">
       <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Font Size</button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">X-Small</a></li>
@@ -304,7 +358,6 @@ body {
     <p>New International Version</p>
     <div class="verse-title">A Letter to the Exiles</div>
     <div class="verse-number-block">
-      
       <div class="verse-number">29</div>
       <div class="verse-content">
     This is the text of the letter that the prophet Jeremiah sent from Jerusalem to the surviving elders among the exiles and to the priests, the prophets and all the other people Nebuchadnezzar had carried into exile from Jerusalem to Babylon. 2 (This was after King Jehoiachin[a] and the queen mother, the court officials and the leaders of Judah and Jerusalem, the skilled workers and the artisans had gone into exile from Jerusalem.) 3 He entrusted the letter to Elasah son of Shaphan and to Gemariah son of Hilkiah, whom Zedekiah king of Judah sent to King Nebuchadnezzar in Babylon. It said:

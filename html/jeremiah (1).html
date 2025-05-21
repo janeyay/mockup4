@@ -15,31 +15,55 @@ body {
   color: #000;
 }
 .top-container {
-  background-color: #FFF2F2;
+  background-color: #7a2a27;
   padding: 1rem;
 }
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:2px;
+}
+.top-container .dropdown-menu{
+  width: fit-content !important;
+  font-size: 12px !important;
 }
 .search-container .form-control {
   height: 50px;
-  border: 1px solid #9F2525;
-  border-radius: 10px 0px 0px 10px;
+  /* border: 1px solid #9F2525; */
+  border: none;
+  color: white;
+  border-radius: 0px !important;
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent background */
+  
+  
 }
+.search-container .form-control::placeholder {
+  color: white;
+}
+/* .search-container .tab-option span{
+  font-size: 12px !important;
+} */
 .search-container .top-dropdown {
   height: 50px !important;
-  border: 1px solid #9F2525;
-  border-radius: 0px;
-  color: rgb(23, 23, 23);
+  /* border: 1px solid #9F2525; */
+  border: none;
+  color: white;
+  border-radius: 0px !important;
+  
+  background: rgba(255, 255, 255, 0.2);
+  
 }
 .search-container .btn-search {
-  background-color: #9F2525;
+  background-color: #501010e6;
   color: white;
   height: 50px;
   width: 100px;
   border: none;
+}
+.search-container .tab-content a:hover{
+  background-color:  #7a2a27;
+  color: rgb(234, 219, 219);
 }
 .verse-container {
   display: flex;
@@ -53,20 +77,21 @@ body {
   font-family: "Inknut Antiqua", serif;
   font-weight: 100 !important;
   padding: 10px 0px;
-  border-bottom: 2px solid #fcebeb;
+  border-bottom: 2px solid #792f2c;;
 }
 .verse-container p {
-  font-size: 14px;
+  font-size: 12px;
   color: #9F2525;
+  margin-top: 4px;
 }
 .verse-box {
-  background-color: #FFFBFB;
-  border-radius: 8px;
+  background-color: #fbfffe;
+  border-radius: 4px;
   padding: 2rem;
   flex: 1;
   min-width: 300px;
   max-width: 48%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 4px 1px #7a2a27;
   transition: all 0.3s ease-in-out;
 }
 .verse-number-block {
@@ -96,8 +121,23 @@ body {
   padding: 0 1rem;
 }
 .top-bar .dropdown-toggle {
-  color: #9F2525;
+  color: #c6bfbf;
   font-weight: 500;
+}
+.top-bar .dropdown-toggle:hover {
+  color: #ffffff;
+  font-weight: 500;
+}
+.top-bar .font-edit a{
+  font-size: 12px;
+}
+.top-bar .font-edit a:hover{
+  background-color: #7a2a27;
+  color: white;
+}
+.top-bar .font-edit .dropdown-menu{
+  border-radius: 0px !important;
+  width:max-content !important;
 }
 .icons-bar {
   display: flex;
@@ -116,31 +156,41 @@ body {
   display: flex;
   background-color: #fffafa;
   gap: 5px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden;
   width: 100%;
 }
 .book-column {
-  width: 33.3%;
-  height: 300px;
+  
+  height: 350px;
   overflow-y: auto;
   border-right: 1px solid #ddd;
   padding: 1rem;
   
 }
+.book-column::-webkit-scrollbar{
+  width: 2px;
+}
+.book-column::-webkit-scrollbar-thumb {
+  background: #392222;
+  border-radius: 5px;
+}
 .book-column:last-child {
   border-right: none;
+  width:50%;
 }
 .book-column h5 {
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: 16px;
   margin-bottom: 1rem;
 }
 .book-column ul {
   list-style: none;
   padding: 0;
+  font-size: 12px;
 }
 .book-column li {
-  padding: 0.5rem;
+  padding: 0.2rem;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -153,10 +203,14 @@ body {
 }
 .dropdown-menu .book-section {
   pointer-events: auto;
-  min-width: 800px;
+  min-width: 500px;
 }
 #bookContent{
     background-color: #f9eeee !important;
+}
+#bookContent li:hover {
+  background-color:  #7a2a27;
+  color: rgb(234, 219, 219);
 }
 .form-check-label {
   margin-left: 0.5rem;
@@ -284,7 +338,7 @@ body {
     </div>
 
     <!-- Font Size Dropdown -->
-    <div class="dropdown">
+    <div class="dropdown font-edit">
       <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Font Size</button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">X-Small</a></li>
@@ -309,8 +363,8 @@ body {
       </div>
     </div>
     <div class="verse-bottom mt-3">
-      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters</a>
-      <a href="#" class="text-decoration-none">Jeremiah 29:11 in all English Translations</a>
+      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters &nbsp; <i class="bi bi-book-half"></i></a>
+      <a href="#" class="text-decoration-none">Jeremiah 29:11 in all English Translations &nbsp; <i class="bi bi-globe"></i></a>
     </div>
     <div class="icons-bar">
       <a href="#" id="toggleVerse1" title="Toggle View"><i class="bi bi-plus-square text-secondary"></i></a>
@@ -351,8 +405,8 @@ body {
       </div>
     </div>
     <div class="verse-bottom mt-3">
-      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters</a>
-      <a href="#" class="text-decoration-none">Philippians 4:13 in all English Translations</a>
+      <a href="jermiahRead.html" class="text-decoration-none d-block">Read Full Chapters &nbsp; <i class="bi bi-book-half"></i></a>
+      <a href="#" class="text-decoration-none">Philippians 4:13 in all English Translations &nbsp; <i class="bi bi-globe"></i></a>
     </div>
     <div class="icons-bar">
       <a href="#" id="toggleVerse2" title="Toggle View"><i class="bi bi-plus-square text-secondary"></i></a>
